@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Complexity Checker - Demo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .demo-section {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .demo-card {
+            background: #f9fafb;
+            border-radius: 12px;
+            padding: 1.5rem;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+        
+        .demo-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .demo-password {
+            font-family: 'Courier New', monospace;
+            background: #e5e7eb;
+            padding: 0.5rem;
+            border-radius: 6px;
+            margin: 0.5rem 0;
+            font-weight: 600;
+        }
+        
+        .demo-score {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0.5rem 0;
+        }
+        
+        .demo-strength {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin: 0.5rem 0;
+        }
+        
+        .demo-strength.very-weak {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+        
+        .demo-strength.weak {
+            background: #fef3c7;
+            color: #d97706;
+        }
+        
+        .demo-strength.medium {
+            background: #fef3c7;
+            color: #d97706;
+        }
+        
+        .demo-strength.strong {
+            background: #d1fae5;
+            color: #059669;
+        }
+        
+        .demo-strength.very-strong {
+            background: #dbeafe;
+            color: #2563eb;
+        }
+        
+        .demo-description {
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+        }
+        
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-shield-alt"></i> Password Complexity Checker</h1>
+            <p>Demo - Example Passwords and Their Scores</p>
+        </header>
+
+        <a href="index.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i>
+            Back to Checker
+        </a>
+
+        <div class="demo-section">
+            <h2><i class="fas fa-lightbulb"></i> Understanding Password Strength</h2>
+            <p>Below are examples of different password types and their expected strength scores. Use these as a reference to understand how the checker evaluates password complexity.</p>
+        </div>
+
+        <div class="demo-grid">
+            <div class="demo-card">
+                <h3><i class="fas fa-times-circle"></i> Very Weak Passwords</h3>
+                <div class="demo-password">password</div>
+                <div class="demo-score">Score: 15</div>
+                <div class="demo-strength very-weak">Very Weak</div>
+                <div class="demo-description">Common words, no complexity, easily guessable</div>
+                
+                <div class="demo-password">123456</div>
+                <div class="demo-score">Score: 5</div>
+                <div class="demo-strength very-weak">Very Weak</div>
+                <div class="demo-description">Sequential numbers only</div>
+            </div>
+
+            <div class="demo-card">
+                <h3><i class="fas fa-exclamation-triangle"></i> Weak Passwords</h3>
+                <div class="demo-password">mypassword</div>
+                <div class="demo-score">Score: 25</div>
+                <div class="demo-strength weak">Weak</div>
+                <div class="demo-description">Common word, only lowercase letters</div>
+                
+                <div class="demo-password">password123</div>
+                <div class="demo-score">Score: 30</div>
+                <div class="demo-strength weak">Weak</div>
+                <div class="demo-description">Common word with numbers</div>
+            </div>
+
+            <div class="demo-card">
+                <h3><i class="fas fa-minus-circle"></i> Medium Passwords</h3>
+                <div class="demo-password">MyPassword123</div>
+                <div class="demo-score">Score: 45</div>
+                <div class="demo-strength medium">Medium</div>
+                <div class="demo-description">Mixed case with numbers</div>
+                
+                <div class="demo-password">SecurePass!</div>
+                <div class="demo-score">Score: 50</div>
+                <div class="demo-strength medium">Medium</div>
+                <div class="demo-description">Mixed case with special character</div>
+            </div>
+
+            <div class="demo-card">
+                <h3><i class="fas fa-check-circle"></i> Strong Passwords</h3>
+                <div class="demo-password">MySecurePass123!</div>
+                <div class="demo-score">Score: 70</div>
+                <div class="demo-strength strong">Strong</div>
+                <div class="demo-description">Mixed case, numbers, and special characters</div>
+                
+                <div class="demo-password">Complex@Password#2024</div>
+                <div class="demo-score">Score: 85</div>
+                <div class="demo-strength strong">Strong</div>
+                <div class="demo-description">Long, complex with multiple character types</div>
+            </div>
+
+            <div class="demo-card">
+                <h3><i class="fas fa-star"></i> Very Strong Passwords</h3>
+                <div class="demo-password">K9#mP$2vL@8nQ&5xR</div>
+                <div class="demo-score">Score: 95</div>
+                <div class="demo-strength very-strong">Very Strong</div>
+                <div class="demo-description">Random characters, all types, no patterns</div>
+                
+                <div class="demo-password">Tr0ub4dor&3</div>
+                <div class="demo-score">Score: 80</div>
+                <div class="demo-strength very-strong">Very Strong</div>
+                <div class="demo-description">Complex substitution with special characters</div>
+            </div>
+
+            <div class="demo-card">
+                <h3><i class="fas fa-crown"></i> Perfect Passwords</h3>
+                <div class="demo-password">j#K9$mP2@vL8nQ&5xR</div>
+                <div class="demo-score">Score: 100</div>
+                <div class="demo-strength very-strong">Very Strong</div>
+                <div class="demo-description">Maximum complexity, all criteria met</div>
+                
+                <div class="demo-password">H3ll0W0rld!@#$%^&*()</div>
+                <div class="demo-score">Score: 90</div>
+                <div class="demo-strength very-strong">Very Strong</div>
+                <div class="demo-description">Creative substitution with full character set</div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2><i class="fas fa-graduation-cap"></i> Password Security Tips</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                <div>
+                    <h4><i class="fas fa-plus"></i> What to Include</h4>
+                    <ul style="color: #6b7280; font-size: 0.9rem;">
+                        <li>At least 8 characters (12+ recommended)</li>
+                        <li>Uppercase letters (A-Z)</li>
+                        <li>Lowercase letters (a-z)</li>
+                        <li>Numbers (0-9)</li>
+                        <li>Special characters (!@#$%^&*)</li>
+                        <li>Unique characters (no repeats)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4><i class="fas fa-times"></i> What to Avoid</h4>
+                    <ul style="color: #6b7280; font-size: 0.9rem;">
+                        <li>Common words or phrases</li>
+                        <li>Personal information (names, dates)</li>
+                        <li>Sequential patterns (123, abc)</li>
+                        <li>Repeated characters (aaa, 111)</li>
+                        <li>Keyboard patterns (qwerty)</li>
+                        <li>Short passwords (< 8 characters)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>&copy; 2024 Password Complexity Checker. Built with security in mind.</p>
+        </footer>
+    </div>
+</body>
+</html> 

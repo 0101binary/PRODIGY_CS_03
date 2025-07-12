@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Complexity Checker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-shield-alt"></i> Password Complexity Checker</h1>
+            <p>Assess your password strength and get detailed feedback</p>
+        </header>
+
+        <main class="main-content">
+            <div class="password-input-section">
+                <div class="input-group">
+                    <label for="password">Enter Password:</label>
+                    <div class="password-field">
+                        <input type="password" id="password" placeholder="Type your password here..." autocomplete="off">
+                        <button type="button" id="togglePassword" class="toggle-btn">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="strength-meter-section">
+                <div class="strength-label">
+                    <span>Password Strength:</span>
+                    <span id="strengthText" class="strength-text">Enter a password</span>
+                </div>
+                <div class="strength-bar">
+                    <div id="strengthBar" class="strength-progress"></div>
+                </div>
+            </div>
+
+            <div class="criteria-section">
+                <h3>Password Criteria</h3>
+                <div class="criteria-grid">
+                    <div class="criterion" id="lengthCriterion">
+                        <i class="fas fa-ruler-horizontal"></i>
+                        <span>Minimum 8 characters</span>
+                        <i class="status-icon"></i>
+                    </div>
+                    <div class="criterion" id="uppercaseCriterion">
+                        <i class="fas fa-font"></i>
+                        <span>Uppercase letter (A-Z)</span>
+                        <i class="status-icon"></i>
+                    </div>
+                    <div class="criterion" id="lowercaseCriterion">
+                        <i class="fas fa-font"></i>
+                        <span>Lowercase letter (a-z)</span>
+                        <i class="status-icon"></i>
+                    </div>
+                    <div class="criterion" id="numberCriterion">
+                        <i class="fas fa-hashtag"></i>
+                        <span>Number (0-9)</span>
+                        <i class="status-icon"></i>
+                    </div>
+                    <div class="criterion" id="specialCriterion">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span>Special character (!@#$%^&*)</span>
+                        <i class="status-icon"></i>
+                    </div>
+                    <div class="criterion" id="uniqueCriterion">
+                        <i class="fas fa-fingerprint"></i>
+                        <span>No repeated characters</span>
+                        <i class="status-icon"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="score-section">
+                <h3>Strength Score</h3>
+                <div class="score-display">
+                    <div class="score-circle">
+                        <span id="scoreValue">0</span>
+                        <span class="score-max">/100</span>
+                    </div>
+                    <div class="score-breakdown">
+                        <div class="score-item">
+                            <span>Length Bonus:</span>
+                            <span id="lengthScore">0</span>
+                        </div>
+                        <div class="score-item">
+                            <span>Character Variety:</span>
+                            <span id="varietyScore">0</span>
+                        </div>
+                        <div class="score-item">
+                            <span>Complexity:</span>
+                            <span id="complexityScore">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feedback-section">
+                <h3>Recommendations</h3>
+                <div id="feedbackList" class="feedback-list">
+                    <p class="placeholder-text">Enter a password to see recommendations</p>
+                </div>
+            </div>
+
+            <div class="actions-section">
+                <button id="generatePassword" class="btn btn-secondary">
+                    <i class="fas fa-dice"></i> Generate Strong Password
+                </button>
+                <button id="clearPassword" class="btn btn-outline">
+                    <i class="fas fa-eraser"></i> Clear
+                </button>
+                <a href="demo.html" class="btn btn-outline">
+                    <i class="fas fa-lightbulb"></i> View Examples
+                </a>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 Password Complexity Checker. Built with security in mind.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
